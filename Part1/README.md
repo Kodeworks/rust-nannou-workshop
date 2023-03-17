@@ -39,16 +39,10 @@ cargo run --example basic_app
 
 The program will start compiling, and if you haven't compiled a Nannou program before it is going to download some crates and it may take some time.
 But when it is done a window with a cyan background and a pink circle is going to pop up on the screen, hopefully looking something like this:
+
 ![el](/images/hello.png)
-
-![el](/images/hello.png){align=center}
-
-<figure>
-<div align="center">
-<img src="/images/hello.png">
-<figcaption style="text-align: center;font-style:italic">The output from running <code>cargo run --example basic_app</code>
-</div>
-</figure>
+<br/>
+_The output from running_ <code>cargo run --example basic_app</code>
 
 
 If you are seeing a similar image in a window on your computer now, we have Nannou up and running.
