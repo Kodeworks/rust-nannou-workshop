@@ -6,7 +6,7 @@ Generally in Rust, documentation of crates are written in the source code itself
 By using doc comments, i.e. `///` triple forward slashes, documentation is written along with the code.
 The documentation comments also support code sections using backticks, so code examples can be included in the source code.
 After the documentation comments have been finished, you can run `cargo doc` to generate HTML documentation with links and the whole ordeal, bells and whistles.
-See (this chapter in the Rust Book)[https://doc.rust-lang.org/book/ch14-02-publishing-to-crates-io.html#making-useful-documentation-comments] for more about Rust documentation feature.
+See [this chapter in the Rust Book](https://doc.rust-lang.org/book/ch14-02-publishing-to-crates-io.html#making-useful-documentation-comments) for more about Rust documentation feature.
 
 ## Automatic docs generation
 
