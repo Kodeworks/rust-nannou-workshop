@@ -184,3 +184,120 @@ fn update(_app: &App, model: &mut Model, _update: Update) {
 </details>
 
 Running `cargo run --bin part3c` shows us an army of agents flying into the distant right, never to return.
+
+## 🌊 Exercise 3-E: A mind of its own
+Let make those agents more individual!
+
+📜 Update the agent's constructor function with an angle arument.
+Use the angle to update the agent's position.
+
+<details><summary>💡 Out Agents update function now:</summary>
+
+We also added a `step_size` member to our `Agent` struct.
+The update now uses an angle in radians to update the position.
+```rust 
+    fn update(self: &mut Self) {
+        self.vector.x += self.angle.cos() * self.step_size;
+        self.vector.y += self.angle.sin() * self.step_size;
+    }
+```
+
+</details>
+
+<details><summary> 🙈 Agents in random flight directions </summary>
+Out new constructing code:
+
+```rust
+    //maps the range over a closure function that returns instances of `Agent`
+    let agents = (0..agent_count)
+        .map(|_| {
+            let angle = random_range(0.0, TAU);
+            Agent::new(app.window_rect(), angle)
+        })
+        .collect();
+```
+We are now controlling the direction using the _angle_  and step_size rather than a Vec2.
+
+</details>
+
+## 🌊 Exercise 3-E: Every time you run away you take a piece of 🍖 with you
+Let make sure those agent don't fly away into the oblivion.
+
+📜 Update the agent's update function so that the position doesn't go out of the window.
+
+<details><summary> 🙈 <a href=https://www.youtube.com/watch?v=k35dUj5kG90>Stay foreveeer!</a> </summary>
+
+Using this magic spell we create a trap for our agents: If they escape out of one edge, they reappear on the other side.
+You can set the `agent_count` to a lower number to clearly see what happens.
+```rust
+        if self.vector.x < self.win_rect.left() - 10.0 {
+            self.vector.x = self.win_rect.right() + 10.0;
+        }
+        if self.vector.x > self.win_rect.right() + 10.0 {
+            self.vector.x = self.win_rect.left() - 10.0;
+        }
+        if self.vector.y < self.win_rect.bottom() - 10.0 {
+            self.vector.y = self.win_rect.top() + 10.0;
+        }
+        if self.vector.y > self.win_rect.top() + 10.0 {
+            self.vector.y = self.win_rect.bottom() - 10.0;
+        }
+```
+
+</details>
+
+## 🌊 Exercise 3-F: Perlin, Merlin, Schmerlin, the Invisible Hand to guide you
+📜 Add Perlin noise to control the angle of the movement.
+This one involves some steps, so you can just jump onto the suggestion directly.
+
+<details><summary> 🙈 Adding Perlin noise </summary>
+
+We'll give our `Model` some settings for the noise, and initialize it:
+```rust
+struct Model {
+    agents: Vec<Agent>,
+    noise_scale: f64,
+    noise_strength: f64,
+}
+//[...snip...]
+    //Initialize the new data fields
+    Model{
+        agents,
+        noise_scale: 300.0,
+        noise_strength: 10.0,
+    }
+//[...snip...]
+```
+Import the Perlin noise related stuff:
+```rust
+use nannou::noise::{NoiseFn, Perlin, Seedable};
+```
+And we add another update function to the Agent:
+```rust 
+    fn update_angle(&mut self, noise: Perlin, noise_scale: f64, noise_strength: f64) {
+
+        let n = noise.get([
+            self.vector.x as f64 / noise_scale,
+            self.vector.y as f64 / noise_scale,
+            self.noise_z,
+        ]) * noise_strength;
+
+        self.angle = n as f32;
+    }
+```
+
+The Perlin noise instance is created in the `update` function, and our new `update_angle` function is called:
+```rust
+fn update(_app: &App, model: &mut Model, _update: Update) {
+    let noise = Perlin::new().set_seed(10);
+
+    model.agents.iter_mut()
+        .for_each(|agent| {
+            agent.update_angle(noise, model.noise_scale, model.noise_strength);
+            agent.update();
+        });
+}
+```
+
+</details>
+

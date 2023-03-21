@@ -21,6 +21,18 @@ name = "part3c"
 path = "src/suggestions/part3c.rs"
 
 [[bin]]
+name = "part3d"
+path = "src/suggestions/part3d.rs"
+
+[[bin]]
+name = "part3e"
+path = "src/suggestions/part3e.rs"
+
+[[bin]]
+name = "part3f"
+path = "src/suggestions/part3f.rs"
+
+[[bin]]
 name = "part3x"
 path = "src/suggestions/part3x.rs"
 
