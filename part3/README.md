@@ -451,3 +451,93 @@ We already have hooked this up in our `update_angle` function:
 ```
 
 </details>
+
+<br/>
+
+---
+
+<br/>
+
+## 🌊 Exercise 3-I: Increase the fuzzyness
+We want a bit more fuzzyness in the particle flow.
+We have set them free to flow with the Perlinian forceas at play, but still they lack some complexity.
+
+📜 Add a random offset to each `Agent`'s `noize_z`
+
+<details><summary> 🙈 Fuzzying up the flow </summary>
+
+This is our `Agent` constructor now:
+```rust 
+impl Agent{
+    fn new(win_rect: Rect, noise_z: f64) -> Self {
+        let vector = vec2(
+            random_range(win_rect.left(), win_rect.right()),
+            random_range(win_rect.top(), win_rect.bottom()),
+            );
+        Self{
+            vector,
+            vector_old: vector,
+            angle: 0.0,
+            step_size: random_range(1.0, 5.0),
+            win_rect,
+            noise_z: random_range(0.0, noise_z),
+        }
+    }
+    //[...snip...]
+}
+```
+
+</details>
+
+<br/>
+
+---
+
+<br/>
+
+## 🌊 Exercise 3-J: Smooth as silk
+
+To get that real nice flowing feeling we could add thousand upon thousand of additional particles, but our poor CPU will probably start sweating before we get that nice effect going.
+
+A nicer solution is adding an alpha trail to the whole picture, similar to what we did in **Part 2**.
+
+📜 Add an alpha overlay for every frame. The first, and only the first frame, should be colored with a white background. Add the `overlay_alpha` data member to the `Model`.
+
+<details><summary> 🙈 Smoothin' in the cruisin' </summary>
+
+Added the `overlay_alpha` data member to the `Model`:
+```rust 
+    Model{
+        agents,
+        noise_scale: 300.0,
+        noise_strength: 10.0,
+        agent_alpha: 0.35,
+        overlay_alpha: 0.03,
+        stroke_width: 0.3,
+        noise_z_velocity: 0.01,
+    }
+```
+Using this value as the alpha value for our background color:
+```rust
+fn view(app: &App, model: &Model, frame: Frame) {
+    let draw = app.draw();
+
+    if frame.nth() == 0 || app.keys.down.contains(&Key::Delete) {
+        draw.background().color(WHITE);
+    } else {
+        draw.rect()
+            .wh(app.window_rect().wh())
+            .rgba(1.0, 1.0, 1.0, model.overlay_alpha);
+    }
+
+    model.agents.iter().for_each(|agent| {
+        agent.display(&draw, model.stroke_width, model.agent_alpha);
+    });
+
+    draw.to_frame(app, &frame).unwrap();
+}
+```
+We get the frame index with `frame.nth`, and it that is equal to 0 set wipe the screen with WHITE.
+Notice that we also can now use the Delete key to reset the background.
+
+</details>

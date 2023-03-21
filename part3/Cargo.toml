@@ -45,6 +45,10 @@ name = "part3i"
 path = "src/suggestions/part3i.rs"
 
 [[bin]]
+name = "part3j"
+path = "src/suggestions/part3j.rs"
+
+[[bin]]
 name = "part3x"
 path = "src/suggestions/part3x.rs"
 

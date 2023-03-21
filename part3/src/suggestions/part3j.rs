@@ -13,6 +13,7 @@ struct Model {
     noise_scale: f64,
     noise_strength: f64,
     agent_alpha: f32,
+    overlay_alpha: f32,
     stroke_width: f32,
     noise_z_velocity: f64,
 }
@@ -94,7 +95,6 @@ fn model(app: &App) -> Model {
         .build()
         .unwrap();
 
-
     let noise_z_range = 0.4;
     let agent_count = 1000;
     let agents = (0..agent_count)
@@ -108,6 +108,7 @@ fn model(app: &App) -> Model {
         noise_scale: 300.0,
         noise_strength: 10.0,
         agent_alpha: 0.35,
+        overlay_alpha: 0.03,
         stroke_width: 0.3,
         noise_z_velocity: 0.01,
     }
@@ -127,7 +128,13 @@ fn update(_app: &App, model: &mut Model, _update: Update) {
 fn view(app: &App, model: &Model, frame: Frame) {
     let draw = app.draw();
 
-    draw.background().color(WHITE);
+    if frame.nth() == 0 || app.keys.down.contains(&Key::Delete) {
+        draw.background().color(WHITE);
+    } else {
+        draw.rect()
+            .wh(app.window_rect().wh())
+            .rgba(1.0, 1.0, 1.0, model.overlay_alpha);
+    }
 
     model.agents.iter().for_each(|agent| {
         agent.display(&draw, model.stroke_width, model.agent_alpha);
