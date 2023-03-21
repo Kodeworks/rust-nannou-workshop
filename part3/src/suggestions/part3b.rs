@@ -8,8 +8,36 @@ fn main() {
 }
 
 struct Model {
+    agent: Agent,
+}
+
+struct Agent {
     vector: Vec2, //The movemement vector, i.e. how fast and in what direction we travel
     position: Vec2, // The current position
+}
+
+impl Agent{
+    fn new(win_rect: Rect) -> Self {
+        let position = vec2(
+            random_range(win_rect.left(), win_rect.right()),
+            random_range(win_rect.top(), win_rect.bottom()),
+            );
+        Self{
+            vector: vec2(1.0, 0.0),
+            position,
+        }
+    }
+
+    fn update(self: &mut Self) {
+        self.position += self.vector; //add and assign the value to the position
+    }
+
+    fn display(self: &Self, draw: &Draw) {
+        draw.ellipse()
+            .xy(self.position)
+            .radius(5.0)
+            .color(BLACK);
+    }
 }
 
 fn model(app: &App) -> Model {
@@ -19,15 +47,16 @@ fn model(app: &App) -> Model {
         .build()
         .unwrap();
 
-
+    //Call the constructor with the window rect as argument
+    let agent = Agent::new(app.window_rect());
     Model{
-        vector: vec2(1.0, 0.0), //moving one pixel to the right per frame
-        position: vec2(0.0, 0.0),
+        agent
     }
+
 }
 
 fn update(_app: &App, model: &mut Model, _update: Update) {
-    model.position += model.vector; //add and assign the value to the position
+    model.agent.update();
 }
 
 fn view(app: &App, model: &Model, frame: Frame) {
@@ -35,10 +64,7 @@ fn view(app: &App, model: &Model, frame: Frame) {
 
     draw.background().color(WHITE);
 
-    draw.ellipse()
-        .xy(model.position)
-        .radius(5.0)
-        .color(BLACK);
+    model.agent.display(&draw);
 
     draw.to_frame(app, &frame).unwrap();
 }

@@ -8,3 +8,19 @@ edition.workspace = true
 [dependencies]
 nannou.workspace = true
 
+[[bin]]
+name = "part3a"
+path = "src/suggestions/part3a.rs"
+
+[[bin]]
+name = "part3b"
+path = "src/suggestions/part3b.rs"
+
+[[bin]]
+name = "part3c"
+path = "src/suggestions/part3c.rs"
+
+[[bin]]
+name = "part3x"
+path = "src/suggestions/part3x.rs"
+

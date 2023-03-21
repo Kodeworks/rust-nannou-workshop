@@ -8,8 +8,25 @@ fn main() {
 }
 
 struct Model {
+    agent: Agent,
+}
+
+struct Agent {
     vector: Vec2, //The movemement vector, i.e. how fast and in what direction we travel
     position: Vec2, // The current position
+}
+
+impl Agent{
+    fn update(self: &mut Self) {
+        self.position += self.vector; //add and assign the value to the position
+    }
+
+    fn display(self: &Self, draw: &Draw) {
+        draw.ellipse()
+            .xy(self.position)
+            .radius(5.0)
+            .color(BLACK);
+    }
 }
 
 fn model(app: &App) -> Model {
@@ -20,14 +37,19 @@ fn model(app: &App) -> Model {
         .unwrap();
 
 
-    Model{
+    let agent = Agent{
         vector: vec2(1.0, 0.0), //moving one pixel to the right per frame
         position: vec2(0.0, 0.0),
+    };
+
+    Model{
+        agent
     }
+
 }
 
 fn update(_app: &App, model: &mut Model, _update: Update) {
-    model.position += model.vector; //add and assign the value to the position
+    model.agent.update();
 }
 
 fn view(app: &App, model: &Model, frame: Frame) {
@@ -35,10 +57,7 @@ fn view(app: &App, model: &Model, frame: Frame) {
 
     draw.background().color(WHITE);
 
-    draw.ellipse()
-        .xy(model.position)
-        .radius(5.0)
-        .color(BLACK);
+    model.agent.display(&draw);
 
     draw.to_frame(app, &frame).unwrap();
 }
