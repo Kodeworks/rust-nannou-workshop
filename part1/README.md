@@ -968,3 +968,11 @@ And you could call it like this:
 
 🎉 You are using your own specially made function to draw a trailing lines duet!
 
+<br/>
+    
+---
+    
+<br/>
+Good job! Take a break and a snack, you deserve it.
+    
+Next up: [**Part 2: Veiled kaleidoscope**](/part2/README.md) 🚂
