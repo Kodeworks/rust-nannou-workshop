@@ -216,4 +216,4 @@ So there you have it:
 
 ---
 
-This is going swell! Onto the last part: [**Part 3: Perlin noise flow fields](/part3/README.md)
+This is going swell! Onto the last part: [**Part 3: Perlin noise flow fields**](/part3/README.md)
