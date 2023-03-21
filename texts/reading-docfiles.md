@@ -59,7 +59,7 @@ where
 
 To fully understand all the concepts related to this is way out the scope for our workshop, but for the curious we could state in like this in more humanesque lingo:
 This is is an implementation for the struct `Drawing`, for the _lifetime_ `'a` over the generic type `T`, where `T` implements the `SetPosition` trait _and_ can potentially be (hence the `Option`-part) converted into (hence the `Into` part) a `Primitive`.
-A `Primitive` is an _Enum_(https://doc.rust-lang.org/book/ch06-00-enums.html) which in our specific case is an instance of `Primitive::Ellipse()`, where `Ellipse` is a _variant_ of the `Primitive`-enum.
+A `Primitive` is an [_Enum_](https://doc.rust-lang.org/book/ch06-00-enums.html) which in our specific case is an instance of `Primitive::Ellipse()`, where `Ellipse` is a _variant_ of the `Primitive`-enum.
 
 ...at least as humanesque as I can make it for now.
 
