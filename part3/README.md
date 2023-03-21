@@ -541,3 +541,11 @@ We get the frame index with `frame.nth`, and it that is equal to 0 set wipe the 
 Notice that we also can now use the Delete key to reset the background.
 
 </details>
+    
+<br/>
+
+---
+    
+<br/>
+    
+Fantastic work!
