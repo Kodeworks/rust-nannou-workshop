@@ -25,6 +25,12 @@ cargo run --bin part3a
 ```
 Substituting the `a` with the letter of the exercise.
 
+<br/>
+
+---
+
+<br/>
+
 ## 🌊 Exercise 3-A: A struct of its own implementation
 Our starting point is a simpler program where we extend a line towards the right.
 
@@ -185,7 +191,13 @@ fn update(_app: &App, model: &mut Model, _update: Update) {
 
 Running `cargo run --bin part3c` shows us an army of agents flying into the distant right, never to return.
 
-## 🌊 Exercise 3-E: A mind of its own
+<br/>
+
+---
+
+<br/>
+
+## 🌊 Exercise 3-D: A mind of its own
 Let make those agents more individual!
 
 📜 Update the agent's constructor function with an angle arument.
@@ -219,6 +231,11 @@ Out new constructing code:
 We are now controlling the direction using the _angle_  and step_size rather than a Vec2.
 
 </details>
+<br/>
+
+---
+
+<br/>
 
 ## 🌊 Exercise 3-E: Every time you run away you take a piece of 🍖 with you
 Let make sure those agent don't fly away into the oblivion.
@@ -245,6 +262,11 @@ You can set the `agent_count` to a lower number to clearly see what happens.
 ```
 
 </details>
+<br/>
+
+---
+
+<br/>
 
 ## 🌊 Exercise 3-F: Perlin, Merlin, Schmerlin, the Invisible Hand to guide you
 📜 Add Perlin noise to control the angle of the movement.
@@ -300,4 +322,132 @@ fn update(_app: &App, model: &mut Model, _update: Update) {
 ```
 
 </details>
+<br/>
 
+---
+
+<br/>
+
+## 🌊 Exercise 3-G: Linefy it
+To better be able to see the "forces" at play here it would be nice to have much much much more agents.
+This time we will draw them as lines along the "flow path".
+
+Switch the Agent display function with a line drawing one:
+```rust
+    fn display(&self, draw: &Draw, stroke_weight: f32, agent_alpha: f32) {
+        draw.line()
+            .start(self.vector_old)
+            .end(self.vector)
+            .rgba(0.0, 0.0, 0.0, agent_alpha)
+            .stroke_weight(stroke_weight * self.step_size);
+    }
+```
+
+We'll add the stroke_weight and agent_alpha data memebers to the Model definition and initialization, and get these in the `view` function.
+
+The `Model`:
+```rust 
+struct Model {
+    agents: Vec<Agent>,
+    noise_scale: f64,
+    noise_strength: f64,
+    agent_alpha: f32,
+    stroke_width: f32,
+}
+```
+
+Out `Agent::display` function gets these:
+```rust 
+    fn display(&self, draw: &Draw, stroke_weight: f32, agent_alpha: f32) {
+        draw.line()
+            .start(self.vector_old)
+            .end(self.vector)
+            .rgba(0.0, 0.0, 0.0, agent_alpha)
+            .stroke_weight(stroke_weight * self.step_size);
+    }
+```
+
+And they used as arguments in the `view` function:
+
+```rust 
+fn update(_app: &App, model: &mut Model, _update: Update) {
+    let noise = Perlin::new().set_seed(10);
+
+    model.agents.iter_mut()
+        .for_each(|agent| {
+            agent.update_angle(noise, model.noise_scale, model.noise_strength);
+            agent.update();
+        });
+}
+```
+
+<br/>
+
+---
+
+<br/>
+
+## 🌊 Exercise 3-H: Get that field moving
+Our results so far has a quite staic flow field, which causes the particle agents to get stuck in a given path.
+The Perlin noise we have is a 3-dimensional one, so we can use the z-dimension to change the field gradually.
+
+📜 Add a `noise_z_velocity` to the `Model`, and use that to change the Perlin noise's 3rd dimension in the `Agent`'s update function.
+
+<details><summary> 🙈 Moving that third dimension </summary>
+
+Add it to our `Model`:
+```rust 
+struct Model {
+    agents: Vec<Agent>,
+    noise_scale: f64,
+    noise_strength: f64,
+    agent_alpha: f32,
+    stroke_width: f32,
+    noise_z_velocity: f64,
+}
+```
+Init in to `0.01` in our `model` function:
+```rust
+    Model{
+        agents,
+        noise_scale: 300.0,
+        noise_strength: 10.0,
+        agent_alpha: 0.35,
+        stroke_width: 0.3,
+        noise_z_velocity: 0.01,
+    }
+```
+Add it to the `Agents` update function call:
+```rust 
+fn update(_app: &App, model: &mut Model, _update: Update) {
+    let noise = Perlin::new().set_seed(10);
+
+    model.agents.iter_mut()
+        .for_each(|agent| {
+            agent.update_angle(noise, model.noise_scale, model.noise_strength);
+            agent.update(model.noise_z_velocity);
+        });
+}
+```
+And change the Agent update function accordingly:
+```rust
+    fn update(&mut self, noise_z_velocity: f64) {
+        self.noise_z += noise_z_velocity;
+        //[...snip...]
+    }
+```
+We already have hooked this up in our `update_angle` function:
+```rust
+    fn update_angle(&mut self, noise: Perlin, noise_scale: f64, noise_strength: f64) {
+
+        let n = noise.get([
+            self.vector.x as f64 / noise_scale,
+            self.vector.y as f64 / noise_scale,
+            self.noise_z, // moving da phase
+        ]) * noise_strength;
+
+        self.angle = n as f32;
+    }
+```
+
+</details>
