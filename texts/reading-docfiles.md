@@ -1,6 +1,6 @@
 # Reading Rust docfiles
 
-_This article is linked from [Exercise 1.H](/part1/README.md) as a tip on how to read the docfiles that `cargo doc` generates.
+_This article is linked from [Exercise 1.H](/part1/README.md) as a tip on how to read the docfiles that `cargo doc` generates._
 
 Generally in Rust, documentation of crates are written in the source code itself.
 By using doc comments, i.e. `///` triple forward slashes, documentation is written along with the code.
