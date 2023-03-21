@@ -214,4 +214,6 @@ So there you have it:
 * 🎉 Mirroring and angular distribution of lines.
 * 🎉 Smoothstepping and multismoothstepping values.
 
+---
 
+This is going swell! Onto the last part: [**Part 3: Perlin noise flow fields](/part3/README.md)
