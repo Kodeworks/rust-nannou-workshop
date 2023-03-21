@@ -123,7 +123,7 @@ We set up a loop for 12 arms around the center, and scale the draw context by ha
 
 Running `cargo run --bin part2c` shows our kaleidoscopic arms dancing in all 12 directions.
 
-## ❄️  Exercise 2-D: Creaing veils
+## ❄️  Exercise 2-D: Creating veils
 To get a sense of depth or slow movement a common trick is to paint a ver transparent rectangle over the whole image on each update.
 This keeps the history of past drawing longer, and let them fade out over time.
 
@@ -150,7 +150,7 @@ Running `cargo run --bin part2d` shows our veiled arms swaying
 Colors in Nannou is not only your regular RGB Hex codes.
 The color API that Nannou uses is based on the `palette` crate.
 
-The [Color section](/cheat-sheet.md#colors) has more info about colors in Nannou.
+The [Color section](/texts/cheat-sheet.md#colors) has more info about colors in Nannou.
 
 We will use the color `Lch` for our sketch, since it gives a consistent luminance, as it a polar color space, meaning we can change the hue, chroma, luminance, instead of rgb.
 This gives us a more intutive control of the colors.
