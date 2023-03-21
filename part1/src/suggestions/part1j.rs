@@ -1,0 +1,45 @@
+use nannou::prelude::*;
+use common::Osc;
+
+fn main() {
+    nannou::app(model)
+        .update(update)
+        .simple_window(view)
+        .run();
+}
+struct Model {}
+
+fn model(_app: &App) -> Model {
+    Model {}
+}
+
+fn update(_app: &App, _model: &mut Model, _update: Update) {
+}
+
+fn view(app: &App, _model: &Model, frame: Frame){
+    let draw = app.draw();
+    let win = app.window_rect();
+    let t = app.time;
+
+    draw.background()
+        .color(BLACK);
+
+    let aa = vec2(
+        Osc::parametric(t, 0.25, 0.0, 1.02, 0.5),
+        Osc::parametric(t, 0.3, Osc::PHASE90, 1.87, 0.3),
+        );
+    let bb = vec2(
+        Osc::parametric(t, 0.35, 0.0, 1.32, 0.9),
+        Osc::parametric(t, 0.5, Osc::PHASE90, 0.8, 0.1),
+        );
+    let a = aa * 300.0;
+    let b = bb * 300.0;
+
+    draw.line()
+        .points(a, b)
+        .stroke_weight(1.5)
+        .color(PINK);
+
+    draw.to_frame(app, &frame).unwrap();
+}
+

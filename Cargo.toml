@@ -1,0 +1,19 @@
+[workspace]
+members = [ 
+  "basic_app",
+  "part1",
+  "part2", 
+  "part3", 
+  "common",
+]
+resolver = "2"
+
+[workspace.package]
+edition = "2021"
+authors = ["Eirik Blekesaune"]
+
+[workspace.dependencies]
+nannou = "0.18.1"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+

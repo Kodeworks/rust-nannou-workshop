@@ -1,0 +1,65 @@
+[package]
+name = "part1"
+version = "0.1.0"
+edition.workspace = true
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+nannou.workspace = true
+common = { path="../common"}
+
+[[bin]]
+name ="part1a"
+path = "src/suggestions/part1a.rs"
+
+[[bin]]
+name ="part1b"
+path = "src/suggestions/part1b.rs"
+
+[[bin]]
+name ="part1c"
+path = "src/suggestions/part1c.rs"
+
+[[bin]]
+name ="part1d"
+path = "src/suggestions/part1d.rs"
+
+[[bin]]
+name ="part1e"
+path = "src/suggestions/part1e.rs"
+
+[[bin]]
+name ="part1f"
+path = "src/suggestions/part1f.rs"
+
+[[bin]]
+name ="part1g"
+path = "src/suggestions/part1g.rs"
+
+[[bin]]
+name ="part1h"
+path = "src/suggestions/part1h.rs"
+
+[[bin]]
+name ="part1i"
+path = "src/suggestions/part1i.rs"
+
+[[bin]]
+name ="part1j"
+path = "src/suggestions/part1j.rs"
+
+[[bin]]
+name ="part1k"
+path = "src/suggestions/part1k.rs"
+
+[[bin]]
+name ="part1l"
+path = "src/suggestions/part1l.rs"
+
+[[bin]]
+name ="whitney"
+path = "src/whitney.rs"
+
+
+
