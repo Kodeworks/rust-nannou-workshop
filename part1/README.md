@@ -471,7 +471,7 @@ A simple rectangle should be good.
 How do we draw rectangles in Nannou you say?
 
 <details><summary>💡 Let's see if the docs can help us...  </summary>
-⚠️  🤓 Warning: Longer text about reading the Rust docfiles <a href=https://github.com/kodeworks/rust-nannou-workshop/texts/reading-docfiles.md>here</a>⚠️
+⚠️  🤓 Warning: Longer text about reading the Rust docfiles <a href=/texts/reading-docfiles.md>here</a>⚠️
 
 <br/>
 
