@@ -68,8 +68,8 @@ You can now choose to follow the route step-by-step, jump ahead to whatever you 
 In these exercises we will gradually implement simple version of an computer art work from the 1960s by John Whitney, as seen in [this Youtube-video](https://www.youtube.com/watch?v=jIv-EcX9tUs)
 
 We'll build it in byte sized pieces and pick up some Rust specific topics along the way.
-If you find any of the exercise difficult, feel free to just look at the suggestion and move along.
-You can always come to the material a later time if feel for it.
+If you find any of the exercises difficult, feel free to just look at the suggestion and move along.
+You can always come back to the material at a later time if you feel like it.
 
 We start with a basic app setup for a Nannou program.
 In the exercises for Part 1, we will work with the file `part1/src/main.rs`.
@@ -90,7 +90,7 @@ cargo run --bin part1a
 ```
 
 Exercises 1.A to 1.I are based on basic knowledge of how to move objects to different positions on the window, set the colors, translating the drawing context, and how to rotate objects using The Sons of Trigonomic Thrønder, `sin()` and `cos()`.
-If this is all to familiar to you, you can take the Rocket Option™, and land on Exercise 1.J, where we will start actually building the Whitney piece.
+If this is all too familiar to you, you can take the Rocket Option™, and land on Exercise 1.J, where we will start actually building the Whitney piece.
 
 ### Learning goals
 After the exercises in Part 1 you will have a basic understanding of the following:
