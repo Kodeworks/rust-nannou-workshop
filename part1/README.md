@@ -618,7 +618,7 @@ So we could offset the position of the rectangle by half the height of the recta
 This module offers a lot of methods relating to describing the geometrical properties of a rectangle.
 
 
-<details><summary>💡 But didn't we just use the <code>rect</code> thing for just drawing? surely, the <code>rect</code> thing can't do a lot of other fancy geomtrical tricks as well...? : </summary>
+<details><summary>💡 But didn't we just use the <code>rect</code> thing for just drawing? surely, the <code>rect</code> thing can't do a lot of other fancy geometrical tricks as well...? : </summary>
 
 In programming, a general rule is that you try to keep your abstraction as well defined according to a given purpose as possible.
 It would not be a good design if we designed a rectangle abstraction that defines all its geometrical properties as well as how it is going to draw itself on the screen, and send an email to your followers on social media while doing so.
