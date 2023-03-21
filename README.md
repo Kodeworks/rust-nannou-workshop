@@ -87,4 +87,4 @@ As we are churning through the material, you may find yourself wanting to do one
 
 All good things, just remember your main task: _To have fun!_ 😎
 
-Let's get started! Full steam ahead to: [**Part 1: Basic graphics with circles and lines**](/part_1/README.md) 🚂
+Let's get started! Full steam ahead to: [**Part 1: Basic graphics with circles and lines**](/part1/README.md) 🚂
