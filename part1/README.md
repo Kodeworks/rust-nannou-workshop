@@ -141,7 +141,7 @@ fn view(app: &App, _model: &Model, frame: Frame){
 }
 ```
 
-📎 _The suggestions for solutions will only show the relevant changes to the files. Surrounding areas of the changes made are usually _snipped out_, which you can see with `//[...snip...]` comments. Often but not always we will include the function signature for the areas that were changed. To see the whole suggestions you can open the corresponding file from its `suggestion` directory._
+📎 _The suggestions for solutions will only show the relevant changes to the files. Surrounding areas of the changes made are usually _snipped out_, which you can see with <code>//[...snip...]</code> comments. Often but not always we will include the function signature for the areas that were changed. To see the whole suggestions you can open the corresponding file from its `suggestion` directory._
 </details>
 <br/>
 
@@ -169,7 +169,9 @@ app.time.sin() * 100.0; //Multiplying the output from sin() maps the range
 The type that is returned from the <code>ellipse()</code> methods is an instance of <code>Drawing</code>.
 In the type-hint that <code>rust-analyzer</code> gives it says that it is a <code>Drawing<Ellipse></code> i.e. it is a drawing-in-progress of a geometric _primitive_, specifically an ellipse in our case.
 
-📎 _You can of course use Nannou to draw other things than ellipses. In the cheat sheet is a [list of other primitives](/texts/cheat-sheet.md#drawing-primitive-types)
+<br/>
+
+📎 _You can of course use Nannou to draw other things than ellipses. In the cheat sheet is a [list of other primitives](/texts/cheat-sheet.md#drawing-primitive-types)_
 
 ```rust
 draw.ellipse()
@@ -676,7 +678,7 @@ draw.rect()
 
 </details>
 <br/>
-🎉 You have more insight into placing rectangles, using the `nannou::geom::Rect` API.
+🎉 You have more insight into placing rectangles, using the <code>nannou::geom::Rect</code> API.
 
 🎉 You have seen `Rect`'s from different namespaces doing what each of them do best.
 
@@ -717,7 +719,7 @@ You can see different oscillators in action by running the [`common/src/osc_func
 cargo run --bin osc_functions
 ```
 
-📜 : Using the file [`/part1/src/whitney.rs`](/part1/src/whitney.rs) as a starting point, make the ellipse travel in circles using the `Osc::sin_cos` function.
+📜 Using the file [`/part1/src/whitney.rs`](/part1/src/whitney.rs) as a starting point, make the ellipse travel in circles using the `Osc::sin_cos` function.
 Also, add a line between the two ellipses. Another thing you can try is to give the two oscillator slightly different frequencies, so that go in and out of phase with eachother.
 
 You run the code with the command: 
@@ -726,8 +728,8 @@ cargo run --bin whitney
 ```
 
 <details><summary>💡 Importing a module </summary>
-We are going to use the `Osc` struct from the `common` module in our workspace.
-To import the `common` crate in out workbench you use the `use` keyword:
+We are going to use the <code>Osc</code> struct from the <code>common</code> module in our workspace.
+To import the <code>common</code> crate in out workbench you use the <code>use</code> keyword:
 
 ```rust
 use common::Osc;
@@ -739,20 +741,20 @@ We can now use the `Osc` functions with e.g. `Osc::sin`.
 
 
 <details><summary>💡 Rotating oscillator </summary>
-As we know from earlier, the combination of `sin` and `cos` gives us a circular movement.
-The `Osc` struct has a method called `sin_cos` that returns a `Vec2` which is nice, because you can just put the returned value into any `.xy()` method.
+As we know from earlier, the combination of <code>sin</code> and <code>cos</code> gives us a circular movement.
+The <code>Osc</code> struct has a method called <code>sin_cos</code> that returns a <code>Vec2</code> which is nice, because you can just put the returned value into any <code>.xy()</code> method.
 
 ```rust
 .xy(Osc::sin_cos(t, 0.25, 0.0) * 100.0) // multiplying the whole vector with 100.0 makes it move
                                         // in a radius of 100.0 around its origo
 ```
 
-We can now use the `Osc` functions with e.g. `Osc::sin`.
+We can now use the <code>Osc</code> functions with e.g. <code>Osc::sin</code>.
 </details>
 <br/>
 
 <details><summary>💡 Translating a circular movement </summary>
-When you use the `+` operator on a `Vec2` you are actually moving the center position of the circular movement.
+When you use the <code>+</code> operator on a <code>Vec2</code> you are actually moving the center position of the circular movement.
 
 ```rust
 //Adding a `Vec2{x: 100.0, y: -100.0}` means shifting the center of rotation 100.0 pixels right
@@ -821,7 +823,7 @@ Let's us this to control the movement of the points:
     let b = bb * 300.0;
 ```
 
-📜 : Experiment with the settings for the parametric oscillators to se what makes for an interesting movement.
+📜 Experiment with the settings for the parametric oscillators to se what makes for an interesting movement.
 If you feel adventurous you can try to mix in, replace with, any combination of the functions from the `Osc` module.
 
 <details><summary>🙈  The correct answer... </summary>
@@ -840,10 +842,11 @@ If you feel adventurous you can try to mix in, replace with, any combination of 
 In the Whitney piece we see that there are multiple lines following the same path.
 
 Can you think of a way to get this effect in our code?
+
 📜 Make a tail of for examples 10 lines, that follow after the first line.
 
 <details><summary>💡 Making multiple instances </summary>
-A good ole' `for` loop could do the trick.
+A good ole' <code>for</code> loop could do the trick.
 The simplest way to loop over values in Rust is this:
 
 ```rust
@@ -917,8 +920,8 @@ You can ...try to call it with this code (and see what happens...):
 
 <details><summary>💡 Is the computer saying no to your color <code>PINK</code>?</summary>
 The Rust compiler is as may have heard, quite strict.
-The color the `Srgb` type expects is based on `f32` types, whereas the type that is returned from a color constant such as `PINK` is `Rgb<Srgb, u8>`.
-The `u8` is the relevant part of this.
+The color the <code>Srgb</code> type expects is based on <code>f32</code> types, whereas the type that is returned from a color constant such as <code>PINK</code> is <code>Rgb<Srgb, u8></code>.
+The <code>u8</code> is the relevant part of this.
 But it is easy to convert between color type and color spaces in Nannou:
 
 ```rust

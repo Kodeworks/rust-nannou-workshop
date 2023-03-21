@@ -228,7 +228,7 @@ Out new constructing code:
         })
         .collect();
 ```
-We are now controlling the direction using the _angle_  and step_size rather than a Vec2.
+We are now controlling the direction using the <code>angle</code> and <code>step_size</code> rather than a <code>Vec2</code>.
 
 </details>
 <br/>
@@ -240,7 +240,7 @@ We are now controlling the direction using the _angle_  and step_size rather tha
 ## 🌊 Exercise 3-E: Every time you run away you take a piece of 🍖 with you
 Let make sure those agent don't fly away into the oblivion.
 
-📜 Update the agent's update function so that the position doesn't go out of the window.
+📜 Change the agent's update function so that the position doesn't go out of the window.
 
 <details><summary> 🙈 <a href=https://www.youtube.com/watch?v=k35dUj5kG90>Stay foreveeer!</a> </summary>
 
@@ -343,7 +343,7 @@ Switch the Agent display function with a line drawing one:
     }
 ```
 
-We'll add the stroke_weight and agent_alpha data memebers to the Model definition and initialization, and get these in the `view` function.
+We'll add the `stroke_weight` and `agent_alpha` data memebers to the `Model` definition and initialization, and get these in the `view` function.
 
 The `Model`:
 ```rust 
@@ -541,11 +541,18 @@ We get the frame index with `frame.nth`, and it that is equal to 0 set wipe the 
 Notice that we also can now use the Delete key to reset the background.
 
 </details>
-    
+
 <br/>
 
 ---
-    
+
 <br/>
-    
-Fantastic work!
+
+Fantastic work! You made all the way to the end of the workshop material.
+
+Now the only thing that remains is the future.
+
+There are some things that we haven't implemented from the original example, but we have gotten the basic idea up and running.
+Now you can if you like go ahead and modify, experiment and play with the code and see what else you can do with it.
+
+Hope you had fun with the material, and that got inspired to learn more about both Rust and graphics programming.
