@@ -40,17 +40,17 @@ This is used to hide tips, long sections of text, and answers/suggestions to the
 🎉 A cause for celebration! Pat your self on the shoulder, you have completed an exercise and hopefully learned somthing new, while having fun.
 
 ## Your task
-Today your task will one thing and one thing only: **To have fun with Rust and graphics programming.**
+Today your task will be one thing and one thing only: **To have fun with Rust and graphics programming.**
 
-We'll try out best to make this happen.
+We'll try our best to make this happen.
 
-If you are experienced with graphics programming or Rust, or if this is the first time you have ever set your eyes on either of these topics, we will try to create a space for you too learn, play around and experiement.
+If you are experienced with graphics programming or Rust, or if this is the first time you have ever set your eyes on either of these topics, we will try to create a space for you too learn, play around and experiment.
 We want to fascilitate an open and inclusive learning environment, so no questions are stupid and too simple.
 
 The library we will be using today is Nannou, a graphics library that is comparable to projects such as [Processing](https://processing.org/), [openFrameworks](https://openframeworks.cc/), and [p5.js](https://p5js.org/).
 The goal of these types of libraries is to make it easier to get up and running with graphics programming.
 Setting up a graphics systems can be quite complex, involving hundreds of lines of configuring your graphics pipeline before you can get that first triangle onto the screen.
-Sometimes you just want to sketch out some ideas and fun with it, and this is where libraries like these come in handy.
+Sometimes you just want to sketch out some ideas and have fun with it, and this is where libraries like these come in handy.
 
 The Nannou library is most used for digital art, such as the animations you see below.
 As the graphics programming world is huge and complex, with 2D, 3D, modelling, shaders, physics models etc. etc. we of course won't have time to cover the whole spectrum of things.
@@ -67,9 +67,9 @@ If something is not completely clear, feel free to move on to the next.
 * 🌐 **Part 1: Basic graphics with circles and lines**
   * We will recreate a classic generative art work by John Whitney, as seen in [this video](https://www.youtube.com/watch?v=jIv-EcX9tUs)
 * ❄️  **Part 2: Veiled kaleidoscope** 
-  * [Kaleidoscope effects](https://en.wikipedia.org/wiki/Kaleidoscope) is an effective way to create interesting symmetric structures. By by mirroring shapes and colors along angles you get images that can be quite interesting.
+  * [Kaleidoscope effects](https://en.wikipedia.org/wiki/Kaleidoscope) is an effective way to create interesting symmetric structures. By mirroring shapes and colors along angles you get images that can be quite interesting.
 * 🌊 **Part 3: Perlin noise flow fields**
-  * Perlin noise a very interesting noise type that is used a lot in computer graphics and digital computer art. With this you can create natural-looking flow patterns, reminiscent of how fluids and gases disperse.
+  * Perlin noise is a very interesting noise type that is used a lot in computer graphics and digital computer art. With this you can create natural-looking flow patterns, reminiscent of how fluids and gases disperse.
 
 ## What can happen during the workshop
 As we are churning through the material, you may find yourself wanting to do one or more of these things:
