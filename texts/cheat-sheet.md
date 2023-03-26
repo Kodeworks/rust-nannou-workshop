@@ -490,3 +490,9 @@ impl Widget{
     }
 }
 ```
+
+### Debug vs Release
+By default cargo builds are unoptimized. To make your code run faster in general, make sure to set the `--release` flag. Like this...
+```rust
+cargo run --release --bin basic_app
+```
