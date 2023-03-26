@@ -11,7 +11,7 @@ Just to make sure let's take that "Hello, World!" a spin again:
 cargo run --bin hello
 ```
 
-You should see someting like this printed in the terminal window:
+You should see something like this printed in the terminal window:
 ```
 [eirik@kodeworks rust-nannou-workshop]$ cargo run --bin hello
     Finished dev [unoptimized + debuginfo] target(s) in 0.19s
@@ -28,7 +28,7 @@ Also, make sure that you have the [rust-analyzer extension](https://marketplace.
 ## Our first Nannou program
 There are two types of Nannou setups: _sketches_ and _apps_.
 
-* _sketches_ is the simplest to set up and are mostly used for quick or simple experiements, where you don't need much state management, interaction with MIDI, audio etc.
+* _sketches_ is the simplest to set up and are mostly used for quick or simple experiments, where you don't need much state management, interaction with MIDI, audio etc.
 * _apps_ is what you would use for a more full fledged application. This is the type of setup we will use for this workshop.
 
 If you want more explanations of the differences between _apps_ and _sketches_ you can read the Nannou guide chapter [Basics - Sketch vs App](https://guide.nannou.cc/tutorials/basics/sketch-vs-app.html).
@@ -110,7 +110,7 @@ After the exercises in Part 1 you will have a basic understanding of the followi
 
 ### 🌐 Exercise 1-A: Change the colors 
 We are going to set different colors for our background and our circle.
-In Nannou there multiple ways to define colors.
+In Nannou there are multiple ways to define colors.
 The easiest method is to use [_color constants_](/texts/cheat-sheet.md#color-constants)
 
 📎 _The color constants link above points to the Cheat Sheet in [`texts/cheat-sheet.md`](/texts/cheat-sheet.md) This document is a selection of tips, snippets, and info that can be helpful during the workshop._
@@ -280,7 +280,7 @@ const BOTTOM_RATIO: f32 = 1.0/4.0; // If we had used `let top_ratio = 2.0/3.0` t
                                    // constant anyway. The default immutability of variables in
                                    // Rust makes many it easier for the compiler to figure out
                                    // ...But hey, can't a programmer have a bit of fun with 
-                                   //  unecessary optimization from time to time..?
+                                   //  unnecessary optimization from time to time..?
 let y_top = map_range(TOP_RATIO, 0.0, 1.0, win.bottom(), win.top());
 let y_bottom = map_range(BOTTOM_RATIO, 0.0, 1.0, win.bottom(), win.top());
 let y_pos = map_range(app.time.sin(), -1.0, 1.0, y_bottom, y_top);
@@ -903,7 +903,7 @@ Make the line trails have different movement paths and color.
 
 <details><summary>💡 Before we fire up the copy-pastamachine..🏜  Let's try to keep it <a href=https://en.wikipedia.org/wiki/Don%27t_repeat_yourself>DRY </a></summary>
 
-This is a good chance to make the drawing of line trails into a separate function, so that we can call it with variyng arguments.
+This is a good chance to make the drawing of line trails into a separate function, so that we can call it with varying arguments.
 
 May I suggest a function signature for you:
 ```rust
