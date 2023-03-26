@@ -69,7 +69,7 @@ struct Model {
 }
 
 struct Agent {
-    vector: Vec2, //The movemement vector, i.e. how fast and in what direction we travel
+    vector: Vec2, //The movement vector, i.e. how fast and in what direction we travel
     position: Vec2, // The current position
 }
 ```
@@ -140,7 +140,7 @@ Running `cargo run --bin part3b` shows us a moving circle again, now in its own 
 If we want that cool particle agent army energy going, we have to create lots of them.
 Now we will have to add one constructor call per agent we create.
 
-📜 Lets use a looping statement and create multiple agents and store them in a Vec.
+📜 Let's use a looping statement and create multiple agents and store them in a Vec.
 
 <details><summary>💡 This time we will use an Iterator over a range, instead of a `for` loop:</summary>
 
@@ -200,7 +200,7 @@ Running `cargo run --bin part3c` shows us an army of agents flying into the dist
 ## 🌊 Exercise 3-D: A mind of its own
 Let make those agents more individual!
 
-📜 Update the agent's constructor function with an angle arument.
+📜 Update the agent's constructor function with an angle argument.
 Use the angle to update the agent's position.
 
 <details><summary>💡 Out Agents update function now:</summary>
@@ -343,7 +343,7 @@ Switch the Agent display function with a line drawing one:
     }
 ```
 
-We'll add the `stroke_weight` and `agent_alpha` data memebers to the `Model` definition and initialization, and get these in the `view` function.
+We'll add the `stroke_weight` and `agent_alpha` data members to the `Model` definition and initialization, and get these in the `view` function.
 
 The `Model`:
 ```rust 
@@ -388,7 +388,7 @@ fn update(_app: &App, model: &mut Model, _update: Update) {
 <br/>
 
 ## 🌊 Exercise 3-H: Get that field moving
-Our results so far has a quite staic flow field, which causes the particle agents to get stuck in a given path.
+Our results so far has a quite static flow field, which causes the particle agents to get stuck in a given path.
 The Perlin noise we have is a 3-dimensional one, so we can use the z-dimension to change the field gradually.
 
 📜 Add a `noise_z_velocity` to the `Model`, and use that to change the Perlin noise's 3rd dimension in the `Agent`'s update function.
@@ -460,7 +460,7 @@ We already have hooked this up in our `update_angle` function:
 
 ## 🌊 Exercise 3-I: Increase the fuzzyness
 We want a bit more fuzzyness in the particle flow.
-We have set them free to flow with the Perlinian forceas at play, but still they lack some complexity.
+We have set them free to flow with the Perlinian forces at play, but still they lack some complexity.
 
 📜 Add a random offset to each `Agent`'s `noize_z`
 
