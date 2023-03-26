@@ -31,7 +31,7 @@ Well, in the source code for `Drawing` obviously, where also the [documentation]
 
 Let us take the `.xy()` method we used to set the ellipse position as an example and look at its description in the docs under [this heading](https://docs.rs/nannou/0.18.1/nannou/draw/struct.Drawing.html#impl-3).
 We see the method signature is seemingly uncomplicated.
-It is a _public_ function (`pub`) that gets two arguments: `self` and a `Point2`, for which it returns a instance of the same type as itself, i.e. `Drawing`.
+It is a _public_ function (`pub`) that gets two arguments: `self` and a `Point2`, for which it returns an instance of the same type as itself, i.e. `Drawing`.
 
 ```rust
 pub fn xy(self, p: Point2) -> Self`
@@ -63,7 +63,7 @@ A `Primitive` is an [_Enum_](https://doc.rust-lang.org/book/ch06-00-enums.html) 
 
 ...at least as humanesque as I can make it for now.
 
-Feeble attemps to make this readable aside, how can I see what other methods are available for my `Drawing<Ellipse>`?
+Feeble attempts to make this readable aside, how can I see what other methods are available for my `Drawing<Ellipse>`?
 
 ## Implemented traits on `Drawing`
 
@@ -75,7 +75,7 @@ Let me list them for you here:
 - `SetDimensions` is described [here](https://docs.rs/nannou/0.18.1/nannou/draw/struct.Drawing.html#impl-2)
 - `SetColor` is described [here](https://docs.rs/nannou/0.18.1/nannou/draw/struct.Drawing.html#impl-1)
 - `SetFill` is described [here](https://docs.rs/nannou/0.18.1/nannou/draw/struct.Drawing.html#impl-5)
-- `SetStroke` is desribed [here](https://docs.rs/nannou/0.18.1/nannou/draw/struct.Drawing.html#impl-6)
+- `SetStroke` is described [here](https://docs.rs/nannou/0.18.1/nannou/draw/struct.Drawing.html#impl-6)
 - `SetPolygon` is described [here](https://docs.rs/nannou/0.18.1/nannou/draw/struct.Drawing.html#impl-15)
 
 ## So what does this trait thingy actually mean?
