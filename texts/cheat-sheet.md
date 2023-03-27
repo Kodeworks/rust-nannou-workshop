@@ -99,7 +99,7 @@ draw.ellipse(); // -> Drawing<Ellipse>
 ```
 Nannou can of course draw other primitive types, using the methods here:
 ```rust
-ellipse(); // cirles, ellipses
+ellipse(); // circles, ellipses
 line();    // lines
 rect();    // rectangles
 quad();    // define from 4 points
@@ -348,7 +348,7 @@ let a = hsv()
 In a lot of the Nannou code you will see you will se that color constants are used, e.g. `BLUE`, `BEIGE` etc.
 You can find a list of these color constant [here](https://docs.rs/nannou/0.18.1/nannou/color/index.html#constants).
 
-### Color contant type mismatch errors
+### Color constant type mismatch errors
 The colors you get from color constants are 8-bit colors, so if you want to modify them with other color you may sometimes get a compiler complaint that the types don't match.
 One example is this code:
 
@@ -489,4 +489,10 @@ impl Widget{
         }
     }
 }
+```
+
+### Debug vs Release
+By default cargo builds are unoptimized. To make your code run faster in general, make sure to set the `--release` flag. Like this...
+```rust
+cargo run --release --bin basic_app
 ```

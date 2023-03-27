@@ -1,5 +1,5 @@
 # ❄️  Part 2: Veiled kaleidoscope
-[Kaleidoscope effects](https://en.wikipedia.org/wiki/Kaleidoscope) is an effective way to create interesting symmetric structures. By by mirroring shapes and colors along angles you get images that can be quite interesting.
+[Kaleidoscope effects](https://en.wikipedia.org/wiki/Kaleidoscope) is an effective way to create interesting symmetric structures. By mirroring shapes and colors along angles you get images that can be quite interesting.
 
 In this part we won't be as stepwise "exerceisey" as in the previous part.
 This time we will be looking at a specific technique for generating lines.
@@ -68,12 +68,12 @@ Running `cargo run --bin part2a` shows us the nice wavy line.
 
 ## ❄️  Exercise 2-B: Mirroring the line
 
-We humans are often suckers for symmetry, so lets mirror the line around the center axis.
+We humans are often suckers for symmetry, so let's mirror the line around the center axis.
 We can use the `Drawing::scale_x` for this, and give a negative value:
 
 ```rust
     //Add another line with the path, just with the draw context scaled with a negative value
-    // effetively mirroring it
+    // effectively mirroring it
     draw.scale_x(-1.0)
         .path()
         .stroke()
@@ -127,7 +127,7 @@ Running `cargo run --bin part2c` shows our kaleidoscopic arms dancing in all 12 
 To get a sense of depth or slow movement a common trick is to paint a ver transparent rectangle over the whole image on each update.
 This keeps the history of past drawing longer, and let them fade out over time.
 
-A common bug that people run into using nannou is that our `draw.background().color()` won't work for transparent colors.
+A common bug that people run into using Nannou is that our `draw.background().color()` won't work for transparent colors.
 We will have to use a rectangle for this:
 
 ```rust
@@ -152,10 +152,10 @@ The color API that Nannou uses is based on the `palette` crate.
 
 The [Color section](/texts/cheat-sheet.md#colors) has more info about colors in Nannou.
 
-We will use the color `Lch` for our sketch, since it gives a consistent luminance, as it a polar color space, meaning we can change the hue, chroma, luminance, instead of rgb.
-This gives us a more intutive control of the colors.
+We will use the color `Lch` for our sketch, since it gives a consistent luminance, as it a polar color space, meaning we can change the hue, chroma, luminance, instead of RGB.
+This gives us a more intuitive control of the colors.
 
-We have to import to be able to useit
+We have to import to be able to use it.
 
 ```rust
 use nannou::color::Lch;
@@ -169,11 +169,11 @@ And we can for example use it like this.
     let color = Lch::new( 
         90.0, // luminance in percent
         10.0, // chroma, quite little saturation for the colors
-        hue // hue in debgrees from -180.0 - 180.0
+        hue // hue in degrees from -180.0 - 180.0
         );
 ```
 
-Running `cargo run --bin p2_e` shows our colored veils.
+Running `cargo run --bin part2e` shows our colored veils.
 
 ## ❄️  Exercise 2-F: More complex color behaviour
 
